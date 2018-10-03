@@ -35,6 +35,10 @@ def current_player(board)
   turn_count(board).even? ? 'X' : 'O'
 end
 
+def turn_count(board)
+  board.count {|token| token=='X' || token=='O'}
+end
+
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS=[
   [0,1,2], # Top row
