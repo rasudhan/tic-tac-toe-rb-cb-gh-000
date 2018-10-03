@@ -11,6 +11,26 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
+def input_to_index(index)
+  index.to_i-1
+end
+
+def move(board,index,token="X")
+  board[index]=token
+end
+
+def turn(board)
+  puts "Please enter 1-9:"
+  input=gets.strip
+  index=input_to_index(input)
+  if valid_move?(board,index)
+    move(board,index)
+    display_board(board)
+  else
+    turn(board)
+  end
+end
+
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS=[
   [0,1,2], # Top row
